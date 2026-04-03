@@ -1,4 +1,11 @@
-/* Documentación: https://developer.mozilla.org/es/docs/Web/CSS/--*
+/* =============================================
+   NIOVE OS — styles.css
+   Estética: Desktop pastel, cute & profesional
+   ============================================= */
+
+/* ---------- 1. VARIABLES CSS ----------
+   Cambia estos valores para personalizar toda la paleta.
+   Documentación: https://developer.mozilla.org/es/docs/Web/CSS/--*
 */
 :root {
   --bg:          #fdf6f0;   /* Fondo del escritorio: crema suave */
@@ -20,7 +27,8 @@
   --close-text:  #7a2020;   /* Ícono X del botón cerrar */
 }
 
-/* Documentación: https://developer.mozilla.org/es/docs/Web/CSS/box-sizing
+/* ---------- 2. RESET Y BASE ----------
+   Documentación: https://developer.mozilla.org/es/docs/Web/CSS/box-sizing
 */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -38,11 +46,11 @@ body {
   position: relative;
 }
 
-/* iconos escritorio */
+/* ---------- 3. ÍCONOS DEL ESCRITORIO ---------- */
 .desktop-icons {
   position: fixed;
   top: 12px;
-  left: 30px;
+  left: 10px;
   bottom: 44px;
   width: 72px;
   display: flex;
@@ -60,7 +68,8 @@ body {
   border: none;
   cursor: pointer;
   opacity: 0.8;
-  /* Documentación: https://developer.mozilla.org/es/docs/Web/CSS/transition*/
+  /* Suaviza el cambio de opacidad al hacer hover
+     Documentación: https://developer.mozilla.org/es/docs/Web/CSS/transition */
   transition: opacity 0.15s, transform 0.15s;
   color: var(--text);
 }
@@ -71,36 +80,37 @@ body {
 }
 
 .icon-box {
-  width: 77px;
-  height: 77px;
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   background: var(--titlebar);
   border: 1.5px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 48px;
+  font-size: 22px;
 }
 
 .icon span {
-  font-size: 12px;
+  font-size: 9px;
   font-weight: 700;
   color: var(--muted);
   text-align: center;
   line-height: 1.2;
 }
 
-/* area ventanas */
+/* ---------- 4. ÁREA DE VENTANAS ---------- */
 .windows-area {
   position: fixed;
   top: 0;
   left: 72px;
   right: 0;
-  bottom: 50px;
+  bottom: 44px;
   overflow: hidden;
 }
 
-/* VENTANASAS
+/* ---------- 5. VENTANAS ----------
+   position: absolute permite colocarlas en cualquier lugar del área.
    Documentación: https://developer.mozilla.org/es/docs/Web/CSS/position
 */
 .win {
@@ -110,6 +120,7 @@ body {
   position: absolute;
   min-width: 200px;
   z-index: 1;
+  /* Suaviza la sombra al cambiar de ventana activa */
   transition: box-shadow 0.15s;
 }
 
@@ -118,7 +129,7 @@ body {
   border-color: var(--accent);
 }
 
-/* barra titulo*/
+/* --- Barra de título --- */
 .win-titlebar {
   background: var(--titlebar);
   padding: 7px 12px;
@@ -126,7 +137,8 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  /* Documentación: https://developer.mozilla.org/es/docs/Web/CSS/user-select */
+  /* Evita seleccionar texto al arrastrar
+     Documentación: https://developer.mozilla.org/es/docs/Web/CSS/user-select */
   user-select: none;
   cursor: move;
 }
@@ -140,7 +152,8 @@ body {
   letter-spacing: 0.2px;
 }
 
-/* X de cerrar
+/* ---------- 6. BOTÓN DE CERRAR ----------
+   FIX: ahora tiene fondo, texto visible y tamaño cómodo.
 */
 .win-close {
   width: 20px;
@@ -156,6 +169,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* flex-shrink: 0 evita que el botón se comprima */
   flex-shrink: 0;
   transition: background 0.15s, transform 0.1s;
   font-family: 'Nunito', sans-serif;
@@ -167,14 +181,14 @@ body {
   transform: scale(1.1);
 }
 
-/* Cuerpo de la ventana */
+/* --- Cuerpo de la ventana --- */
 .win-body {
   padding: 14px;
   font-size: 13px;
   line-height: 1.75;
 }
 
-/* elementos internos */
+/* ---------- 7. ELEMENTOS INTERNOS ---------- */
 
 /* Etiqueta de sección en mayúsculas pequeñas */
 .section-label {
@@ -351,7 +365,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 50px;
+  height: 44px;
   background: var(--panel);
   border-top: 1.5px solid var(--border);
   display: flex;
