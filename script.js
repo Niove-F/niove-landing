@@ -1,13 +1,30 @@
-/* =============================================
-   NIOVE OS — script.js
-   Lógica: ventanas arrastrables, foco, reloj
-   ============================================= */
+// SONIDOS
+const SOUNDS = {
+  open:  new Audio('assets/open.mp3'),
+  close: new Audio('assets/close.mp3'),
+};
 
-/* ---------- 1. ESTADO GLOBAL ---------- */
+SOUNDS.open.volume  = 0.5;
+SOUNDS.close.volume = 0.5;
+
+function playSound(name) {
+  const s = SOUNDS[name];
+  if (!s) return;
+  s.currentTime = 0; //rebobinar
+  s.play().catch(() => {}); //catch evita errores si el navegador bloquea el audio
+}
+
+let muted = false;
+
+function toggleMute() {
+  muted = !muted;
+  Object.values(SOUNDS).forEach(s => s.muted = muted);
+  document.getElementById('mute-btn').textContent = muted ? '🔇' : '🔊';
+}
 
 // zTop lleva la cuenta del z-index más alto.
-// Cada vez que una ventana recibe foco se le asigna ++zTop
-// para que aparezca encima de las demás.
+// Cada vez que una ventana recibe foco se le asigna ++zTop para que aparezca encima de las demás.
+
 let zTop = 10;
 
 // Mapa de id lógico → id del elemento HTML
@@ -22,8 +39,6 @@ const WINS = {
 // Orden de los botones en la taskbar (mismo que en el HTML)
 const TASKBAR_KEYS = ['about', 'tech', 'projects', 'hobbies', 'contact'];
 
-/* ---------- 2. FUNCIONES DE VENTANAS ---------- */
-
 /**
  * focusWin(key)
  * Trae una ventana al frente. Si estaba oculta, la vuelve a mostrar.
@@ -36,7 +51,10 @@ function focusWin(key) {
   const el = document.getElementById(WINS[key]);
   if (!el) return;
 
-  if (el.style.display === 'none') el.style.display = '';
+  if (el.style.display === 'none'){
+    el.style.display = '';
+    playSound('open');
+  }
 
   el.style.zIndex = ++zTop;
 
@@ -54,6 +72,7 @@ function focusWin(key) {
 function closeWin(key) {
   const el = document.getElementById(WINS[key]);
   if (el) el.style.display = 'none';
+  playSound('close');
 }
 
 /**
@@ -66,11 +85,9 @@ function updateTaskbar(activeKey) {
   });
 }
 
-/* ---------- 3. ARRASTRE DE VENTANAS ----------
-   Al presionar el mouse sobre la titlebar, la ventana se puede
+/* Al presionar el mouse sobre la titlebar, la ventana se puede
    mover libremente por la pantalla.
 
-   Cómo funciona:
    1. onmousedown en la titlebar llama a startDrag()
    2. Se guarda la distancia entre el cursor y la esquina de la ventana
    3. mousemove actualiza la posición de la ventana en tiempo real
@@ -105,7 +122,7 @@ function startDrag(event, winId) {
   document.addEventListener('mouseup', onMouseUp);
 }
 
-/* ---------- 4. FOCO AL HACER CLIC EN UNA VENTANA ---------- */
+/* FOCO al clickear en ventana */
 document.querySelectorAll('.win').forEach(win => {
   win.addEventListener('mousedown', () => {
     const key = Object.keys(WINS).find(k => WINS[k] === win.id);
@@ -113,8 +130,7 @@ document.querySelectorAll('.win').forEach(win => {
   });
 });
 
-/* ---------- 5. RELOJ EN TIEMPO REAL ----------
-   Actualiza el elemento <time id="clock"> cada segundo.
+/* RELOJITOO
 
    Documentación:
    - Date: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date
@@ -132,3 +148,11 @@ function updateClock() {
 
 updateClock();
 setInterval(updateClock, 1000);
+
+function closeAllWins() {
+  Object.values(WINS).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+    playSound('close');
+}

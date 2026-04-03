@@ -38,7 +38,7 @@
   <main class="windows-area" id="warea">
 
     <!-- Ventana: Sobre mí -->
-    <section class="win active" id="win-about" aria-label="Sobre mí" style="top:14px;left:14px;width:300px;">
+    <section class="win active" id="win-about" aria-label="Sobre mí" style="top:180px;left:550px;width:300px;display:none;">
       <div class="win-titlebar" onmousedown="startDrag(event,'win-about')">
         <button class="win-close" onclick="closeWin('about')" aria-label="Cerrar">✕</button>
         <span class="win-title">sobre mí ✨</span>
@@ -46,23 +46,25 @@
       <div class="win-body">
         <div class="avatar" aria-hidden="true">🌸</div>
         <h1 class="hello-name">Hola, soy Niove!</h1>
-        <p class="hello-sub">Estudiante de ingeniería de software</p>
+        <p class="hello-sub">Niove Alejandra Fuentes López, estudiante de ingeniería de software</p>
         <p class="about-text">
-          Me encanta aprender cosas nuevas y explorar el mundo de la programación.
-          Mi objetivo: convertirme en <span class="highlight">full stack developer</span>
-          y contribuir a proyectos con impacto positivo en la sociedad. 💜
+          Me encanta conseguir nuevas habilidades y descubrir más sobre el mundo de la programación.
+          Mis objetivos actuales involucran poder cumplir con mis estudios y obtener experiencia laboral en el campo
+          del desarrollo de software. A largo plazo, mi objetivo principal es convertirme en una desarrolladora de
+          software <span class="highlight">full stack developer</span>
+          y contribuir a proyectos innovadores que tengan un impacto positivo en la sociedad.
         </p>
       </div>
     </section>
 
     <!-- Ventana: Tecnologías -->
-    <section class="win" id="win-tech" aria-label="Tecnologías" style="top:14px;left:332px;width:240px;">
+    <section class="win" id="win-tech" aria-label="Tecnologías" style="top:35px;left:800px;width:240px;display:none;">
       <div class="win-titlebar" onmousedown="startDrag(event,'win-tech')">
         <button class="win-close" onclick="closeWin('tech')" aria-label="Cerrar">✕</button>
-        <span class="win-title">tecnologías 💻</span>
+        <span class="win-title">Tecnologías de interés</span>
       </div>
       <div class="win-body">
-        <p class="section-label">mi stack</p>
+        <p class="section-label">Estoy familiarizada con:</p>
         <ul class="tag-list" aria-label="Tecnologías">
           <li class="tag">C++</li>
           <li class="tag">C#</li>
@@ -77,61 +79,57 @@
     </section>
 
     <!-- Ventana: Proyectos -->
-    <section class="win" id="win-projects" aria-label="Proyectos" style="top:200px;left:14px;width:340px;">
+    <section class="win" id="win-projects" aria-label="Proyectos" style="top:320px;left:770px;width:340px;display:none;">
       <div class="win-titlebar" onmousedown="startDrag(event,'win-projects')">
         <button class="win-close" onclick="closeWin('projects')" aria-label="Cerrar">✕</button>
-        <span class="win-title">proyectos 📁</span>
+        <span class="win-title">Proyectos Destacados</span>
       </div>
       <div class="win-body">
-        <p class="section-label">destacados</p>
         <article class="proj">
           <a href="https://github.com/Niove-F/ADA_F.git" target="_blank" class="proj-title">Registro de Denuncias →</a>
-          <p class="proj-desc">Sistema en Golang con regex para validar y registrar denuncias de forma rápida y sencilla.</p>
+          <p class="proj-desc">Sistema en Golang con regex para validar y registrar denuncias de forma rápida y sencilla.<br>
+            El sistema permite a los usuarios ingresar detalles de la denuncia de manera sencilla y rápida, utilizando regex para validar la información ingresada.</p>
         </article>
         <article class="proj">
-          <a href="https://github.com/CODEPLAI-GAMES-SAC/InfrasctruturaBase.git" target="_blank" class="proj-title">Gestión de Células →</a>
-          <p class="proj-desc">Plataforma eclesiástica integral. Go · Gin · GORM · PostgreSQL · Vue.js 3 · TailwindCSS</p>
+          <a href="https://github.com/CODEPLAI-GAMES-SAC/InfrasctruturaBase.git" target="_blank" class="proj-title">Sistema de Gestión de Células →</a>
+          <p class="proj-desc">Fui parte del equipo que desarrolló una plataforma integral de gestion eclesiastica que permite administrar celulas, discipulado, consolidaciones, primer contacto y más.
+        Para este sistema utilizamos <span class="highlight">Go 1.24, Gin, GORM v2, PostgreSQL 16, Vue.js 3, Vite, TailwindCSS</span>, entre otros.</p>
         </article>
       </div>
     </section>
 
     <!-- Ventana: Hobbies -->
-    <section class="win" id="win-hobbies" aria-label="Hobbies" style="top:190px;left:370px;width:210px;">
+    <section class="win" id="win-hobbies" aria-label="Hobbies" style="top:70px;left:270px;width:210px;display:none;">
       <div class="win-titlebar" onmousedown="startDrag(event,'win-hobbies')">
         <button class="win-close" onclick="closeWin('hobbies')" aria-label="Cerrar">✕</button>
-        <span class="win-title">hobbies 🎵</span>
+        <span class="win-title">Intereses/Hobbies</span>
       </div>
       <div class="win-body">
-        <p class="section-label">fuera del código</p>
-        <ul class="hobby-list">
-          <li class="hobby-item">Música</li>
-          <li class="hobby-item">Dibujo</li>
-          <li class="hobby-item">Teatro &amp; escenario</li>
-          <li class="hobby-item">Piano <span class="muted-sm">(en progreso)</span></li>
-          <li class="hobby-item">Guitarra <span class="muted-sm">(en progreso)</span></li>
-        </ul>
+        <p class="section-label">Me gusta mucho la música, dibujar y el teatro. Participé anteriormente en un par de obras de
+            la universidad y adoro la sensación de estar en el escenario. También me gusta tocar intrumentos, aunque aún no domino ninguno, 
+            mis favoritos son el piano y la guitarra.
+        </p>
       </div>
     </section>
 
     <!-- Ventana: Contacto -->
-    <section class="win" id="win-contact" aria-label="Contacto" style="top:390px;left:14px;width:300px;">
+    <section class="win" id="win-contact" aria-label="Contacto" style="top:390px;left:180px;width:300px;display:none;">
       <div class="win-titlebar" onmousedown="startDrag(event,'win-contact')">
         <button class="win-close" onclick="closeWin('contact')" aria-label="Cerrar">✕</button>
-        <span class="win-title">contacto ✉️</span>
+        <span class="win-title">Contacto</span>
       </div>
       <div class="win-body">
-        <p class="section-label">encuéntrame en</p>
         <ul class="contact-list">
           <li class="contact-row">
-            <span class="contact-label">email</span>
+            <span class="contact-label">E-mail</span>
             <a href="mailto:24101108@ue.edu.pe" class="contact-val">24101108@ue.edu.pe</a>
           </li>
           <li class="contact-row">
-            <span class="contact-label">linkedin</span>
+            <span class="contact-label">Linkedin</span>
             <a href="https://www.linkedin.com/in/niove-lópez-820073225" target="_blank" class="contact-val">niove-lópez</a>
           </li>
           <li class="contact-row">
-            <span class="contact-label">github</span>
+            <span class="contact-label">Github</span>
             <a href="https://github.com/Niove-F" target="_blank" class="contact-val">Niove-F</a>
           </li>
         </ul>
@@ -142,11 +140,13 @@
 
   <!-- Barra de tareas -->
   <footer class="taskbar" role="navigation" aria-label="Barra de tareas">
-    <button class="taskbar-item active" onclick="focusWin('about')">🪷 sobre mí</button>
-    <button class="taskbar-item" onclick="focusWin('tech')">💻 tech</button>
-    <button class="taskbar-item" onclick="focusWin('projects')">📁 proyectos</button>
-    <button class="taskbar-item" onclick="focusWin('hobbies')">🎵 hobbies</button>
-    <button class="taskbar-item" onclick="focusWin('contact')">✉️ contacto</button>
+    <button class="taskbar-item active" onclick="focusWin('about')">sobre mí</button>
+    <button class="taskbar-item" onclick="focusWin('tech')">tech</button>
+    <button class="taskbar-item" onclick="focusWin('projects')">proyectos</button>
+    <button class="taskbar-item" onclick="focusWin('hobbies')">hobbies</button>
+    <button class="taskbar-item" onclick="focusWin('contact')">contacto</button>
+    <button class="taskbar-item" onclick="closeAllWins()">CLOSE ALL</button>
+    <button class="taskbar-item" onclick="toggleMute()" id="mute-btn">🔈</button>
     <time class="clock" id="clock" aria-live="polite">--:--</time>
   </footer>
 
