@@ -1,3 +1,21 @@
+const bgColor = getComputedStyle(document.documentElement)
+  .getPropertyValue('--bg') 
+  .trim();
+
+VANTA.BIRDS({
+  el: "#vanta-bg",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  backgroundColor: parseInt(bgColor.replace("#", ""), 16),
+  color1: 0xe58d17,
+  color2: 0xffdea7,
+  birdSize: 1.20,
+  backgroundAlpha: 1
+});
+
 // SONIDOS
 const SOUNDS = {
   open:  new Audio('assets/open.mp3'),
